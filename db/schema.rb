@@ -10,10 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_24_023205) do
+ActiveRecord::Schema.define(version: 2020_02_24_035707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abilities", force: :cascade do |t|
+    t.string "description"
+    t.bigint "beast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beast_id"], name: "index_abilities_on_beast_id"
+  end
+
+  create_table "beasts", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.integer "dangerousness"
+    t.integer "price"
+    t.string "location"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_beasts_on_user_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "beast_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beast_id"], name: "index_bookings_on_beast_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "booking_id"
+    t.text "content"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +70,9 @@ ActiveRecord::Schema.define(version: 2020_02_24_023205) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "abilities", "beasts"
+  add_foreign_key "beasts", "users"
+  add_foreign_key "bookings", "beasts"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "bookings"
 end
