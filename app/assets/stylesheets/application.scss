@@ -1,4 +1,5 @@
 // Graphical variables
+@import "config/font/stylesheet.css";
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
@@ -11,3 +12,33 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #101425, #10142588), url('bg-gold-scene.jpg');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  // background: $eerie-black;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+}
