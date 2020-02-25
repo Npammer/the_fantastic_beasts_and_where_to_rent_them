@@ -4,8 +4,7 @@
 
     <div class="card user" style="width: 18rem;">
       <div class="card-img-top">
-        <!-- Need insert img tag with cli_image_tag here -->
-        <img class="card-img-top" src="https://source.unsplash.com/random/800x600/?people" alt="">
+        <%= cl_image_tag @user.photo.key, height: 400, width: 300, crop: :fill, class: "card-img-top" %>
       </div>
 
       <div class="card-body">
