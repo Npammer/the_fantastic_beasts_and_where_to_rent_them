@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-rails db:
 
 
 user1 = User.create!(email: 'harry@mail.com', password: '123456')
