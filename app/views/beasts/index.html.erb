@@ -1,8 +1,9 @@
 
 <div class="beast-container">
-  <% @beasts.each do |beast| %>
+  <div class="row">
 
-    <div class="card" style="width: 18rem;">
+  <% @beasts.each do |beast| %>
+    <div class="card col-12 col-md-6 col-lg-4" style="width: 18rem;">
       <div class="card-img-top">
         <!-- Need insert img tag with cli_image_tag here -->
         <img class="card-img-top" src="https://source.unsplash.com/random/800x600/?lizard" alt="">
@@ -20,4 +21,5 @@
 
   <% end %>
 
+  </div>
 </div>
