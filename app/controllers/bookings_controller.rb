@@ -2,22 +2,24 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
 
   def index
-    @bookings = booking.all
+    @bookings = Booking.all
   end
 
   def show; end
 
   def new
-    @booking = booking.new
+    @booking = Booking.new
+    @beast = Beast.find(params[:beast_id])
   end
 
   def create
-    @booking = booking.new(booking_params)
+    @beast = Beast.find(params[:beast_id])
+    @booking = Booking.new(booking_params)
     @booking.user = current_user
-    raise
-    @booking.beast =
+    @booking.beast = @beast
+
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to root_path
     else
       render :new
     end
@@ -29,7 +31,7 @@ class BookingsController < ApplicationController
     @booking.update(booking_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to root_path
     else
       render :new
     end
@@ -49,6 +51,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :total_price)
   end
-end
-
 end
