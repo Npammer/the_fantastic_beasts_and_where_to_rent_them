@@ -13,6 +13,7 @@ class BeastsController < ApplicationController
 
   def create
     @beast = Beast.new(beast_params)
+    @beast.user = current_user
     if @beast.save
       redirect_to beast_path(@beast)
     else
@@ -24,6 +25,7 @@ class BeastsController < ApplicationController
 
   def update
     @beast.update(beast_params)
+    @beast.user = current_user
     if @beast.save
       redirect_to beast_path(@beast)
     else
@@ -42,7 +44,7 @@ class BeastsController < ApplicationController
     @beast = Beast.find(params[:id])
   end
 
-  def user_params
-    params.require(:beast).permit(:name, :category, :price, :location, :dangerousness)
+  def beast_params
+    params.require(:beast).permit(:name, :category, :price, :location, :dangerousness, :photo)
   end
 end
