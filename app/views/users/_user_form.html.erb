@@ -1,9 +1,11 @@
 <%= simple_form_for @user do |f| %>
 
-  <%#= f.input :avatar, as: :file, input_html: { accept: User::AVATAR } %>
-
   <%= f.input :fullname %>
 
   <%= f.input :bio %>
+
+  <%= f.input :photos, as: :file %>
+
+  <%= f.button :submit %>
 
 <% end %>
