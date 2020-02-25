@@ -5,8 +5,7 @@
   <% @beasts.each do |beast| %>
     <div class="card col-12 col-md-6 col-lg-4" style="width: 18rem;">
       <div class="card-img-top">
-        <!-- Need insert img tag with cli_image_tag here -->
-        <img class="card-img-top" src="https://source.unsplash.com/random/800x600/?lizard" alt="">
+        <img class="card-img-top" src="<%= cl_image_path beast.photo.key %>" alt="Card image cap">
       </div>
       <div class="card-body">
         <h3 class="card-title"><%= link_to beast.name, beast_path(beast) %></h3>
