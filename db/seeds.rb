@@ -8,6 +8,10 @@
 
 require "open-uri"
 
+Abillity.destroy_all
+Beast.destroy_all
+User.destroy_all
+
 puts 'begin'
 
 user1 = User.create!(email: 'harry@mail.com', password: '123456')
