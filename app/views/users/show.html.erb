@@ -1,0 +1,30 @@
+<h1 class="title-show"><%= @user.fullname %></h1>
+
+<div class="page-show user">
+
+    <div class="card user" style="width: 18rem;">
+      <div class="card-img-top">
+        <!-- Need insert img tag with cli_image_tag here -->
+        <img class="card-img-top" src="https://source.unsplash.com/random/800x600/?people" alt="">
+      </div>
+
+      <div class="card-body">
+        <h3 class="card-title"><%= @user.email %></h3>
+        <h5 class="card-text"><%= @user.bio %></h5>
+        <p class="card-text">Location </p>
+      </div>
+
+      <div class="btn-container">
+        <%= link_to 'Home', root_path, class: 'btn btn-dark' %>
+        <%= link_to 'Edit this user', edit_user_path(@user),
+            method: :get,
+            class: 'btn btn-dark'  %>
+        <%= link_to 'Delete', user_path(@user),
+            method: :delete,
+            data: {confirm: 'Are you sure deleting this user?'}, class: 'btn btn-dark'  %>
+      </div>
+
+    </div>
+      <!-- Need insert tag for reviews here -->
+
+</div>
