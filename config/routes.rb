@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     resources :beasts, only: [:new, :create]
   end
 
-  resources :beasts, except: [:new, :create]
+  resources :beasts, except: [:new]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
