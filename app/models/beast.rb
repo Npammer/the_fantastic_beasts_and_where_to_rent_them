@@ -5,4 +5,6 @@ class Beast < ApplicationRecord
   validates :name, :category, :price, presence: true
   validates :dangerousness, presence: true, inclusion: {in: [1,2,3,4,5]}
   has_many :reviews, through: :bookings
+
+  has_one_attached :photo
 end
