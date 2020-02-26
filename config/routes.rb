@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :beasts, except: [:new] do
+    resources :abilities, only: [:new, :create]
     resources :bookings, only: [:new, :create]
   end
 
