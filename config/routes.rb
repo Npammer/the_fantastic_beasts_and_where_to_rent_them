@@ -5,13 +5,14 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :beasts, only: [:new, :create]
+    resources :bookings, only: [:index]
   end
 
   resources :beasts, except: [:new] do
-    resources :bookings, only: [:index, :new, :create]
+    resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, except: [:new, :create] do
+  resources :bookings, except: [:index, :new, :create] do
    resources :reviews, only: [:new, :create]
   end
 

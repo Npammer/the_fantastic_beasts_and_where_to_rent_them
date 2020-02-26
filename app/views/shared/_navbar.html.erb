@@ -21,7 +21,7 @@
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
-            <%= image_tag "koala-ava", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://res.cloudinary.com/dvbejvnhk/image/upload/v1582693057/koala-ava_k6pdbq.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
 
           <!-- avatar code here -->
