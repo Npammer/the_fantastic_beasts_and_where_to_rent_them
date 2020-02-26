@@ -12,6 +12,11 @@
         <p class="card-text">Price per day: $<%= @beast.price %></p>
         <p class="card-text">Location: <%= @beast.location %></p>
         <p class="card-text">Danger level: <%= @beast.dangerousness %></p>
+        <ul>
+          <% @beast.abilities.each do |ability| %>
+          <li><%= ability.description %> </li>
+          <% end %>
+        </ul>
 
       <!-- Need insert tag for reviews here -->
 
