@@ -19,6 +19,10 @@
           <% end %>
         </ul>
 
+        <%= link_to 'Add Ability to Beast', new_beast_ability_path(@beast) %>
+
+
+
       <!-- Need insert tag for reviews here -->
 
         <div class="btn-container">
@@ -34,6 +38,14 @@
       </div>
     </div>
 
-    <!-- <div id="map"></div> -->
+    <!-- MapBox -->
+      <div
+        id="map"
+        style="width: 100%;
+        height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      >
+    </div>
 
 </div>

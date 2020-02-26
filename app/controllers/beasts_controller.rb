@@ -5,7 +5,16 @@ class BeastsController < ApplicationController
     @beasts = Beast.all
   end
 
-  def show; end
+  def show
+    @beasts = Beast.geocoded
+
+    @markers = @beasts.map do |beast|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
+  end
 
   def new
     @beast = Beast.new
