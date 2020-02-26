@@ -1,3 +1,4 @@
+
 <%= simple_form_for @user do |f| %>
 
   <%= f.input :fullname %>
@@ -9,3 +10,9 @@
   <%= f.button :submit %>
 
 <% end %>
+
+<br>
+
+<div class="btn-container">
+        <%= link_to 'Home', root_path, class: 'btn btn-dark' %>
+</div>
