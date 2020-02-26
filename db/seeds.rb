@@ -8,7 +8,7 @@
 
 require "open-uri"
 
-Abillity.destroy_all
+Ability.destroy_all
 Beast.destroy_all
 User.destroy_all
 
