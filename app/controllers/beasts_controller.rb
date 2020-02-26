@@ -35,7 +35,7 @@ class BeastsController < ApplicationController
 
   def destroy
     @beast.destroy
-    redirect_to root_path
+    redirect_to beasts_path
   end
 
   private
