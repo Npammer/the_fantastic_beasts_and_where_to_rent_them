@@ -1,21 +1,20 @@
 
 <div class="beast-container">
-  <div class="row">
+  <div class="row justify-content-center">
 
   <% @beasts.each do |beast| %>
-    <div class="card col-12 col-md-6 col-lg-4" style="width: 18rem;">
+    <div class="card col-12 col-md-5 col-lg-3 m-1 p-1">
       <div class="card-img-top">
         <img class="card-img-top" src="<%= cl_image_path beast.photo.key %>" alt="Card image cap">
       </div>
       <div class="card-body">
         <h3 class="card-title"><%= link_to beast.name, beast_path(beast) %></h3>
-        <h5 class="card-text"><%= beast.category.capitalize %></h5>
-        <p class="card-text">Price per day: $<%= beast.price %></p>
-        <p class="card-text">Location <%= beast.location %></p>
-        <p class="card-text">Danger level: <%= beast.dangerousness %></p>
+        <h5 class="card-text">Where to find: <%= beast.location %></h5>
+
       </div>
       <%= link_to 'More info', beast_path(beast),
-          method: :get %>
+          method: :get,
+          class: 'btn btn-dark' %>
     </div>
 
   <% end %>

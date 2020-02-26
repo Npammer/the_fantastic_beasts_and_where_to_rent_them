@@ -1,11 +1,11 @@
+
 <%= simple_form_for @user do |f| %>
-
   <%= f.input :fullname %>
-
   <%= f.input :bio %>
-
   <%= f.input :photo, as: :file %>
-
   <%= f.button :submit %>
-
 <% end %>
+
+<div class="btn-container">
+        <%= link_to 'Home', root_path, class: 'btn btn-light' %>
+</div>

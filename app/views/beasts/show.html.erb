@@ -3,7 +3,7 @@
 <div class="page-show">
 
     <div class="img-show">
-        <%= cl_image_tag @beast.photo.key, height: 400, width: 300, crop: :fill %>
+        <%= cl_image_tag @beast.photo.key, crop: :fit %>
     </div>
 
     <div class="card-show">
@@ -13,10 +13,17 @@
         <p class="card-text">Location: <%= @beast.location %></p>
         <p class="card-text">Danger level: <%= @beast.dangerousness %></p>
 
+        <ul>
+          <% @beast.abilities.each do |ability| %>
+          <li><%= ability.description %> </li>
+          <% end %>
+        </ul>
+
       <!-- Need insert tag for reviews here -->
 
         <div class="btn-container">
         <%= link_to 'Home', beasts_path, class: 'btn btn-dark' %>
+        <%= link_to 'Book now!', new_beast_booking_path(@beast), class: 'btn btn-dark' %>
         <%= link_to 'Edit this beast', edit_beast_path(@beast),
             method: :get,
             class: 'btn btn-dark'  %>

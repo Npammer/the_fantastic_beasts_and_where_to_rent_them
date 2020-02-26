@@ -5,6 +5,7 @@ class Beast < ApplicationRecord
   validates :name, :category, :price, presence: true
   validates :dangerousness, presence: true, inclusion: {in: [1,2,3,4,5]}
   has_many :reviews, through: :bookings
+  has_many :abilities
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
