@@ -6,14 +6,11 @@ class BeastsController < ApplicationController
   end
 
   def show
-    @beasts = Beast.geocoded
-
-    @markers = @beasts.map do |beast|
-      {
-        lat: beast.latitude,
-        lng: beast.longitude
+    @beast_geocoded = Beast.geocoded.find(params[:id])
+    @marker = {
+        lat: @beast.latitude,
+        lng: @beast.longitude
       }
-    end
   end
 
   def new

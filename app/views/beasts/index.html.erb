@@ -5,7 +5,11 @@
     <% @beasts.each do |beast| %>
       <div class="card col-12 col-md-5 col-lg-3 m-1 p-1">
         <div class="card-img-top">
-          <img class="card-img-top" src="<%= cl_image_path beast.photo.key %>" alt="Card image cap">
+          <% if beast.photo.attached? %>
+            <img class="card-img-top" src="<%= cl_image_path beast.photo.key %>" alt="Card image cap">
+          <% else %>
+            <%= image_tag "koala-ava.png", alt: "Card image cap", class: "card-img-top"%>
+          <% end %>
         </div>
         <div class="card-body">
           <h3 class="card-title"><%= link_to beast.name, beast_path(beast) %></h3>
