@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.beast = @beast
 
     if @booking.save
-      redirect_to root_path
+      redirect_to beasts_path
     else
       render :new
     end
@@ -31,21 +31,22 @@ class BookingsController < ApplicationController
     @booking.update(booking_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to root_path
+      redirect_to beasts_path
     else
       render :new
     end
   end
 
   def destroy
+    id = @booking.user_id
     @booking.destroy
-    redirect_to root_path
+    redirect_to user_path(id)
   end
 
   private
 
   def set_booking
-    @booking = booking.find(params[:id])
+    @booking = Booking.find(params[:id])
   end
 
   def booking_params

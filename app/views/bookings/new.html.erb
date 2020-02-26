@@ -1,1 +1,33 @@
+<h2>Booking form for <%= @beast.name %></h2>
+<h5>Total days: <span id='days_output'>0</span> -- Total price: <span id='price_output'>0</span> </h5>
+
 <%= render partial: "booking_form" %>
+
+<script>
+  const startDateInput = document.getElementById('booking_start_date_3i');
+  const endDateInput = document.getElementById('booking_end_date_3i');
+  const startMonthInput = document.getElementById('booking_start_date_2i');
+  const endMonthInput = document.getElementById('booking_end_date_2i');
+  const startYearInput = document.getElementById('booking_start_date_1i');
+  const endYearInput = document.getElementById('booking_end_date_1i');
+  const daysOutput = document.getElementById('days_output');
+  const priceOutput = document.getElementById('price_output');
+  const total = document.getElementById('booking_total_price');
+
+  const inputs = [startDateInput, endDateInput, startMonthInput, endMonthInput, startYearInput, endYearInput];
+
+  inputs.forEach(input => input.addEventListener('change', () => calculateDays()));
+
+  const calculateDays = () => {
+    let dateStart = new Date(`${startMonthInput.value}/${startDateInput.value}/${startYearInput.value}`);
+    let dateEnd = new Date(`${endMonthInput.value}/${endDateInput.value}/${endYearInput.value}`);
+    let Difference_In_Time = dateEnd.getTime() - dateStart.getTime();
+    let Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 3600 * 24));
+    let totalPrice = <%= @beast.price %> * Difference_In_Days;
+
+    daysOutput.innerText = Difference_In_Days;
+    priceOutput.innerText = `$${totalPrice}`;
+    total.setAttribute('value', totalPrice);
+    console.log(total);
+  }
+</script>

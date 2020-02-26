@@ -5,7 +5,13 @@ class BeastsController < ApplicationController
     @beasts = Beast.all
   end
 
-  def show; end
+  def show
+    @beast_geocoded = Beast.geocoded.find(params[:id])
+    @marker = {
+        lat: @beast.latitude,
+        lng: @beast.longitude
+      }
+  end
 
   def new
     @beast = Beast.new
@@ -35,7 +41,7 @@ class BeastsController < ApplicationController
 
   def destroy
     @beast.destroy
-    redirect_to root_path
+    redirect_to beasts_path
   end
 
   private
