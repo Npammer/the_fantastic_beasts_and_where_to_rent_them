@@ -1,16 +1,17 @@
-<h1 class="title-show"><%= @user.fullname %></h1>
 
 <div class="page-show user">
+    <h1 class="title-show"><%= @user.fullname %></h1>
 
-    <div class="card user" style="width: 18rem;">
+    <div class="card user">
+
       <div class="card-img-top">
-        <%= cl_image_tag @user.photo.key, height: 400, width: 300, crop: :fill, class: "card-img-top" %>
+        <%= cl_image_tag @user.photo.key, crop: :fit, class: "card-img-top" %>
       </div>
 
       <div class="card-body">
         <h3 class="card-title"><%= @user.email %></h3>
         <h5 class="card-text"><%= @user.bio %></h5>
-        <p class="card-text">Location </p>
+
       </div>
 
       <div class="btn-container">
