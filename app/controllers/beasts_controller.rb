@@ -10,8 +10,8 @@ class BeastsController < ApplicationController
 
     @markers = @beasts.map do |beast|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: beast.latitude,
+        lng: beast.longitude
       }
     end
   end
