@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :beasts, only: [:new, :create]
-    resources :bookings, only: [:index]
   end
 
   resources :beasts, except: [:new] do
