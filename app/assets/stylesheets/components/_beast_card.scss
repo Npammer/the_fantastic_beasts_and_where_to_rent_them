@@ -1,0 +1,52 @@
+.card {
+  background: rgba($uro-gold, 0.7);
+  margin: 16px;
+  border-radius: 8px;
+
+  .card-img {
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+
+    .card-img-top {
+      display: block;
+    }
+  }
+
+  .card-body {
+    padding: 8px;
+    .card-title {
+      margin: 0;
+      text-align: center;
+
+
+      a{
+        text-decoration: none;
+        color: $jap-indigo;
+
+        &:hover {
+          // color: $ori-orange;
+          text-shadow: 2px 2px 7px $jap-indigo;
+        }
+      }
+    }
+
+    .card-text {
+      text-align: center;
+      color: $all-black;
+      display: block;
+      margin: 0 0 16px 0;
+    }
+  }
+
+  .btn-dark {
+    background: $jap-indigo;
+    color: $uro-gold;
+    border-radius: 8px;
+
+    &:hover {
+      background: $uro-gold;
+      color: $jap-indigo;
+    }
+  }
+}

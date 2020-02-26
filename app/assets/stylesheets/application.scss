@@ -19,12 +19,14 @@
   box-sizing: border-box;
 }
 
-body {
-  background-image: linear-gradient(to bottom, #101425, #10142588), url('bg-gold-scene.jpg');
+html {
+  background: linear-gradient(to bottom, #101425, #101425aa, #101425), url('bg-gold-scene.jpg') no-repeat center center fixed;
   background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-  // background: $eerie-black;
+  height: 100%;
+}
+
+body {
+  background: transparent;
   color: #fff;
 }
 
