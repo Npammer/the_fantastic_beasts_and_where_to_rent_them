@@ -8,8 +8,8 @@ class BeastsController < ApplicationController
   def show
     @beast_geocoded = Beast.geocoded.find(params[:id])
     @marker = {
-        lat: @beast.latitude,
-        lng: @beast.longitude
+        lat: @beast_geocoded.latitude,
+        lng: @beast_geocoded.longitude
       }
   end
 
