@@ -2,7 +2,11 @@ class BeastsController < ApplicationController
   before_action :set_beast, only: %i[show edit update destroy]
 
   def index
-    @beasts = Beast.all
+    if params[:query].present?
+      @beasts_results = PgSearch.multisearch(params[:query])
+    else
+      @beasts = Beast.all
+    end
   end
 
   def show
