@@ -11,14 +11,14 @@ const initMapbox = () => {
   const fitMapToMarker = (map, marker) => {
     const bounds = new mapboxgl.LngLatBounds();
     bounds.extend([ marker.lng, marker.lat ]);
-    map.fitBounds(bounds, { padding: 70, zoom: 14, duration: 2000 });
+    map.fitBounds(bounds, { padding: 70, zoom: 13, duration: 2000 });
   };
 
   if (mapElement) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/minhbui/ck7460q0e2wqo1hk4zeujsi6f'
     });
 
     // const markers = JSON.parse(mapElement.dataset.markers);

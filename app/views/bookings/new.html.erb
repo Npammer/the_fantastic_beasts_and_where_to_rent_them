@@ -1,7 +1,11 @@
-<h2>Booking form for <%= @beast.name %></h2>
-<h5>Total days: <span id='days_output'>0</span> -- Total price: <span id='price_output'>0</span> </h5>
+<div class="content-container">
 
-<%= render partial: "booking_form" %>
+  <h2>Booking form for <%= @beast.name %></h2>
+  <h5>Total days: <span id='days_output'>0</span> -- Total price: <span id='price_output'>0</span> </h5>
+
+  <%= render partial: "booking_form" %>
+
+</div>
 
 <script>
   const startDateInput = document.getElementById('booking_start_date_3i');

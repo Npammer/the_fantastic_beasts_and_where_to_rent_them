@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $eerie-black;
+  border-bottom: 1px solid $uro-gold;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +9,16 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 240px;
+}
+
+.navbar-dark .nav-item {
+  .nav-link {
+  color: $uro-gold;
+  font-family: 'fontastic_beastregular';
+  margin-right: 16px;
+  }
+  &.active .nav-link {
+    color: $ori-orange;
+  }
 }
