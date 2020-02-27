@@ -59,6 +59,7 @@
   background-size: cover;
   position: relative;
   border-radius: 8px;
+  z-index: 10;
 
   h3, p {
     text-align: center;
@@ -93,4 +94,16 @@
   #extra-banner-text {
     display: none;
   }
+}
+
+
+#map2 {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 16px;
+  border-radius: 8px;
+  opacity: 0.5;
 }

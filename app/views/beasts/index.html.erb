@@ -67,3 +67,13 @@
     <% end %>
   </div>
 </div>
+
+
+<script>
+  let cards = document.querySelectorAll('.card');
+  cards.forEach((el) => {
+    console.log(el)
+    el.addEventListener('click', () => {
+    el.classList.add('rotate-ani');
+  })})
+</script>
