@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
 
     if @review.save
-      redirect_to root_path
+      redirect_to booking_path(@booking)
     else
       render :new
     end

@@ -15,7 +15,10 @@
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Create a listing", new_user_beast_path(current_user), class: "nav-link" %>
+          <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Hire a beast", new_user_beast_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
