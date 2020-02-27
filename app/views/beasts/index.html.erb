@@ -1,5 +1,6 @@
 
 <div class="beast-container">
+
   <div class='row justify-content-center' style="display: flex;">
     <%= form_tag beasts_path, method: :get do %>
       <%= text_field_tag :query,
@@ -12,55 +13,41 @@
       </span>
     <% end %>
   </div>
+
 <!-- cards -->
   <div class="row justify-content-center">
     <% if @beasts_results.nil? %>
       <% @beasts.each do |beast| %>
-          <div class="card col-12 col-md-5 col-lg-3 m-1 p-1">
-            <div class="card-img-top">
-              <% if beast.photo.attached? %>
-                <img class="card-img-top" src="<%= cl_image_path beast.photo.key %>" alt="Card image cap">
-              <% else %>
-                <%= image_tag "koala-ava.png", alt: "Card image cap", class: "card-img-top"%>
-              <% end %>
-            </div>
-            <div class="card-body">
-              <h3 class="card-title"><%= link_to beast.name, beast_path(beast) %></h3>
-              <h5 class="card-text">Where to find: <%= beast.location %></h5>
+        <div class="card col-12 col-md-5 col-lg-3 p-1 shadow-2">
 
-    <% @beasts.each do |beast| %>
-      <div class="card col-12 col-md-5 col-lg-3 p-1 shadow-2">
+          <div class="card-img">
+            <% if beast.photo.attached? %>
+              <img class="card-img-top" src="<%= cl_image_path beast.photo.key, crop: :fill %>" alt="Card image cap">
+            <% else %>
+              <%= image_tag "koala-ava.png", alt: "Card image cap", class: "card-img-top"%>
+            <% end %>
+          </div>
 
-        <div class="card-img">
-          <% if beast.photo.attached? %>
-            <img class="card-img-top" src="<%= cl_image_path beast.photo.key, crop: :fill %>" alt="Card image cap">
-          <% else %>
-            <%= image_tag "koala-ava.png", alt: "Card image cap", class: "card-img-top"%>
-          <% end %>
-        </div>
+          <div class="card-body">
+            <h3 class="card-title"><%= link_to beast.name, beast_path(beast) %></h3>
+            <p class="card-text">Where to find: <%= beast.location %></p>
 
-        <div class="card-body">
-          <h3 class="card-title"><%= link_to beast.name, beast_path(beast) %></h3>
-          <p class="card-text">Where to find: <%= beast.location %></p>
+          </div>
+
+          <%= link_to 'More info', beast_path(beast),
+              method: :get,
+              class: 'btn btn-dark shadow-1' %>
 
         </div>
-
-        <%= link_to 'More info', beast_path(beast),
-            method: :get,
-            class: 'btn btn-dark shadow-1' %>
-
-      </div>
-
-
-
-
       <% end %>
-    <% else %>
-      <% @beasts_results.each do |beast| %>
 
+    <% else %>
+
+      <% @beasts_results.each do |beast| %>
         <% if beast.searchable_type == "Beast" %>
-          <div class="card col-12 col-md-5 col-lg-3 m-1 p-1">
-            <div class="card-img-top">
+        <!-- another card -->
+          <div class="card col-12 col-md-5 col-lg-3 p-1 shadow-2">
+            <div class="card-img">
               <% if beast.searchable.photo.attached? %>
                 <img class="card-img-top" src="<%= cl_image_path beast.searchable.photo.key %>" alt="Card image cap">
               <% else %>
@@ -70,16 +57,12 @@
             <div class="card-body">
               <h3 class="card-title"><%= link_to beast.searchable.name, beast_path(beast.searchable) %></h3>
               <h5 class="card-text">Where to find: <%= beast.searchable.location %></h5>
-
             </div>
             <%= link_to 'More info', beast_path(beast.searchable),
                 method: :get,
-                class: 'btn btn-dark' %>
+                class: 'btn btn-dark shadow-1' %>
           </div>
-
-
           <% end%>
-
       <% end %>
     <% end %>
   </div>

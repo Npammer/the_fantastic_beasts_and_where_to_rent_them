@@ -11,7 +11,7 @@ const initMapbox = () => {
   const fitMapToMarker = (map, marker) => {
     const bounds = new mapboxgl.LngLatBounds();
     bounds.extend([ marker.lng, marker.lat ]);
-    map.fitBounds(bounds, { padding: 70, zoom: 13, duration: 2000 });
+    map.fitBounds(bounds, { padding: 70, zoom: 7, duration: 3000 });
   };
 
   if (mapElement) {
