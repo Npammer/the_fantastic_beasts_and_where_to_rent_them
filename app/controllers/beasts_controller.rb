@@ -2,14 +2,18 @@ class BeastsController < ApplicationController
   before_action :set_beast, only: %i[show edit update destroy]
 
   def index
-    @beasts = Beast.all
+    if params[:query].present?
+      @beasts_results = PgSearch.multisearch(params[:query])
+    else
+      @beasts = Beast.all
+    end
   end
 
   def show
     @beast_geocoded = Beast.geocoded.find(params[:id])
     @marker = {
-        lat: @beast.latitude,
-        lng: @beast.longitude
+        lat: @beast_geocoded.latitude,
+        lng: @beast_geocoded.longitude
       }
   end
 

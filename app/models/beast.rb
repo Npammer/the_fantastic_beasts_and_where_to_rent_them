@@ -1,4 +1,7 @@
 class Beast < ApplicationRecord
+  include PgSearch::Model
+  multisearchable against: [:name, :category]
+
   has_one_attached :photo
   belongs_to :user
   has_many :bookings, dependent: :destroy

@@ -1,1 +1,9 @@
-show.html.erb
+
+<h2><%= @booking.beast.name %></h2>
+<%= cl_image_tag @booking.beast.photo.key %>
+<h3> Start date; <%= @booking.start_date %></h3>
+<h3> End date; <%= @booking.end_date %></h3>
+<h3>Total price; <%= @booking.total_price %></h3>
+
+<%= link_to 'Make a review', new_booking_review_path(@booking) %>
+

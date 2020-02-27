@@ -47,6 +47,16 @@
     </div>
     </div>
 
+    <div>
+        <% @beast.reviews.each do |review| %>
+        <div class="card-review card">
+        <h5> <%= review.booking.user.email %></h5>
+        <p><%= review.rating %></p>
+        <p><%= review.content %></p>
+        </div>
+        <% end  %>
+    </div>
+
     <!-- MapBox -->
     <div class="second-row">
       <div
