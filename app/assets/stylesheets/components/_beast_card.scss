@@ -50,3 +50,15 @@
     }
   }
 }
+
+// for shadow on light surface
+.shadow-1 {
+  box-shadow: 2px 2px 2px rgba($eerie-black, 0.5);
+}
+// for shadow on dark surface
+.shadow-2 {
+  box-shadow: 4px 4px 2px rgba($eerie-black, 1);
+}
+.shadow-text {
+  text-shadow: 2px 2px 2px rgba($eerie-black, 0.5);
+}
