@@ -1,6 +1,9 @@
 class Beast < ApplicationRecord
   include PgSearch::Model
-  multisearchable against: [:name, :category]
+  multisearchable against: [:name, :category],
+  using: {
+      tsearch: { prefix: true }
+  }
 
   has_one_attached :photo
   belongs_to :user
