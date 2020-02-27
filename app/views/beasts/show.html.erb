@@ -41,11 +41,17 @@
         </div>
       </div>
     </div>
-<!--
-    <ul>
-      <li><%= @beast.reviews.each do %></li>
-    </ul>
--->
+
+    <div>
+        <% @beast.reviews.each do |review| %>
+        <div class="card-review card">
+        <h5> <%= review.booking.user.email %></h5>
+        <p><%= review.rating %></p>
+        <p><%= review.content %></p>
+        </div>
+        <% end  %>
+    </div>
+
     <!-- MapBox -->
       <div
         id="map"
