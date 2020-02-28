@@ -1,58 +1,26 @@
 
-<div class="page-show user">
-    <h1 class="title-show"><%= @user.fullname %></h1>
+<div class="page-show user" id='profile-container'>
 
-    <div class="card user">
-
-      <div class="card-img-top">
-
-        <% if current_user.photo.attached? %>
-            <%= cl_image_tag @user.photo.key, crop: :fit, class: "card-img-top" %>
-          <% else %>
-            <%= image_tag "https://res.cloudinary.com/dvbejvnhk/image/upload/v1582693057/koala-ava_k6pdbq.png", class: "card-img-top" %>
-          <% end %>
-
-      </div>
-
-      <div class="card-body">
-        <h3 class="card-title"><%= @user.email %></h3>
-        <h5 class="card-text"><%= @user.bio %></h5>
-
-      </div>
-
-      <div class="btn-container">
-        <%= link_to 'Home', root_path, class: 'btn btn-dark' %>
-        <%= link_to 'Edit this user', edit_user_path(@user),
-            method: :get,
-            class: 'btn btn-dark'  %>
-
-      </div>
-
+    <div class="profile-picture">
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, class: "card-img-top" %>
+      <% else %>
+        <%= image_tag "https://res.cloudinary.com/dvbejvnhk/image/upload/v1582693057/koala-ava_k6pdbq.png", class: "card-img-top" %>
+      <% end %>
     </div>
 
-    <% if @user.bookings %>
-      <h3>My Bookings</h3>
-      <div class="row justify-content-center">
-        <% @user.bookings.each do |booking| %>
-
-          <div class="card col-6 col-lg-4 m-1 p-1" style="width: 170px;">
-            <div class="card-img-top">
-              <img class="card-img-top" src="https://images.squarespace-cdn.com/content/v1/57848cb0197aea8d8ca06212/1538717714560-RLGKLRE8HJXOUFA9I2CQ/ke17ZwdGBToddI8pDm48kPo6HT4a2f4S2glOwuYrO49Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpy0ZVf-MF3-l9Dv2WSAmgqk6CnSfumG4BXXw2VGecBEjizZ8nukY8vFBcgfEVvjBhU/Murray+Offraod+Adventures+Bookings.png" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">Total: $<%= booking.total_price %></h4>
-              <h6 class="card-text">From: <%= booking.start_date %></h6>
-              <h6 class="card-text">To: <%= booking.end_date %></h6>
-
-            </div>
-            <%= link_to 'Delete', booking_path(booking),
-                method: :delete,
-                class: 'btn btn-dark' %>
-          </div>
-
-        <% end %>
+    <div class="card user shadow-2" id='user-info'>
+      <div class="card-body shadow-text">
+        <h2 class="card-title shadow-text"><%= @user.fullname %></h2>
+        <h6 class="card-title">Email: <%= @user.email %></h6>
+        <p class="card-text"><%= @user.bio %></p>
       </div>
-    <% end %>
-      <!-- Need insert tag for reviews here -->
+      <div class="btn-container" id='profile-btn-container'>
+        <%= link_to 'Home', root_path, class: 'btn btn-dark profile-home-btn  shadow-2' %>
+        <%= link_to 'Edit this user', edit_user_path(@user),
+            method: :get,
+            class: 'btn btn-dark shadow-2'  %>
+      </div>
+    </div>
 
 </div>
