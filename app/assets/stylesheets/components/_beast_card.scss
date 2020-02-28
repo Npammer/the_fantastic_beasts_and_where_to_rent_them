@@ -99,11 +99,11 @@
 }
 @keyframes rotate {
   0% {
-    transform: rotateY(0deg);
+    transform: rotateY(0deg) scale(1);
     opacity: 1;
   }
   100% {
-    transform: rotateY(360deg);
+    transform: rotateY(360deg) scale(3);
     opacity: 0;
   }
 }
