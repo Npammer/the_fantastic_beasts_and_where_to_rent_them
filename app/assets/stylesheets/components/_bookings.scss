@@ -1,0 +1,33 @@
+.card-booking {
+  display: flex;
+  width: 80%;
+  background: rgba($uro-gold, 0.7);
+  padding: 15px;
+  margin: 15px;
+  border-radius: 8px;
+}
+
+.card-booking:hover{
+  background: rgba($uro-gold, 1);
+}
+
+.bookings-avatar > img {
+  height:100px;
+}
+
+.booking-text {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 19px 0px 19px;
+  align-items: center;
+}
+
+.bookings-text > h5{
+  font-size: 1.50rem;
+}
+
+#price {
+  font-size: 1.50rem;
+}
+

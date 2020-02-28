@@ -1,7 +1,23 @@
-<ul>
-<% @bookings.each do |booking| %>
-
-<li><%= link_to "#{booking.id}", booking_path(booking) %></li>
-
-<% end %>
-</ul>
+<div class='content-container'>
+  <% @bookings.each do |booking| %>
+  <div class='card-booking'>
+    <div class='bookings-avatar'>
+      <%= cl_image_tag booking.beast.photo.key %>
+    </div>
+    <div class='booking-text'>
+      <div>
+        <h5><%= link_to "#{booking.beast.name}", booking_path(booking)%></h5>
+      </div>
+      <div>
+        <p>Start date: <%=booking.start_date %></p>
+      </div>
+      <div>
+        <p>End date: <%=booking.end_date %></p>
+      </div>
+      <div>
+        <p id='price'>Total price: <%=booking.total_price %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
