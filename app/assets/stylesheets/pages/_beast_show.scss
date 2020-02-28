@@ -31,6 +31,27 @@
   width: 40%;
   max-height: 100%;
 
+  .title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    .btn-dark {
+      height: 40px;
+      background: transparent;
+      color: $white;
+      border: 1px solid $white;
+      border-radius: 10px;
+
+      &:hover {
+        background: $uro-gold;
+        color: $jap-indigo;
+      }
+    }
+
+  }
+
 
   .card-title {
     background: transparent;
@@ -119,6 +140,36 @@
   border-radius: 8px;
 }
 
+
+.modal-content {
+  background: $eerie-black;
+  border-radius: 16px;
+  border: 2px solid $white;
+
+  .modal-header{
+      color: $white;
+  }
+  .modal-body {
+
+  }
+}
+
+.modal-review {
+  padding: 16px;
+
+  h6 {
+    color: $uro-gold;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-position: center;
+    margin-bottom: 8px;
+  }
+
+}
 
 @media (max-width: 960px) {
   .beast-container {

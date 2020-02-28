@@ -1,7 +1,7 @@
 
 <div class="navbar navbar-expand-sm navbar-dark navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag ( "logo-fantastic-beast" ) %>
+    <%= image_tag ( "https://res.cloudinary.com/dvbejvnhk/image/upload/v1582862507/logo-fantastic-beast_apl9ug.png" ) %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,7 @@
           <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Hire a beast", new_user_beast_path(current_user), class: "nav-link" %>
+          <%= link_to "List your beast", new_user_beast_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>

@@ -9,8 +9,14 @@
     </div>
 
     <div class="beast-info">
-      <h1 class="card card-title shadow-text"><%= @beast.name %></h1>
-
+      <div class="title-container">
+        <h1 class="card card-title shadow-text"><%= @beast.name %></h1>
+        <% if @beast.reviews.exists? %>
+          <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">
+            Read reviews
+          </button>
+        <% end %>
+      </div>
       <div class="card card-info-body shadow-text-2">
         <h5 class="card-info-text"><%= @beast.category.capitalize %> Category</h5>
         <p class="card-info-text">Price per day: $<%= @beast.price %></p>
@@ -47,16 +53,6 @@
     </div>
     </div>
 
-    <div>
-        <% @beast.reviews.each do |review| %>
-        <div class="card-review card">
-        <h5> <%= review.booking.user.email %></h5>
-        <p><%= review.rating %></p>
-        <p><%= review.content %></p>
-        </div>
-        <% end  %>
-    </div>
-
     <!-- MapBox -->
     <div class="second-row">
       <div
@@ -67,4 +63,38 @@
       </div>
     </div>
 
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">All reviews</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="beast-reviews-container">
+          <% @beast.reviews.each do |review| %>
+          <li class="modal-review">
+            <div>
+              <div class="avatar" style="background: url(<%= cl_image_path review.booking.user.photo.key %>);"></div>
+              <h6>from: <%= review.booking.user.email %></h6>
+            </div>
+            <h6><% (review.rating.to_i).times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </h6>
+            <p>"<%= review.content %>"</p>
+          </li>
+          <% end  %>
+        </ul>
+      </div>
+
+    </div>
+  </div>
 </div>
