@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
 
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
   end
 
   def show; end
@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.beast = @beast
 
     if @booking.save
-      redirect_to beasts_path
+      redirect_to bookings_path
     else
       render :new
     end
