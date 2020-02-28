@@ -1,22 +1,18 @@
-
 <div class="content-container">
-  <div class="first-row">
-
+  <div class="first-row">    
     <div class="card beast-img-booking">
       <% if @booking.beast.photo.attached? %>
           <%= cl_image_tag @booking.beast.photo.key, class: 'img-fluid' %>
       <% else %>
         <%= image_tag "koala-ava.png", class: 'img-fluid' %>
       <% end %>
-    </div>
-
-
-      <div class="card card-btn-container">
+    </div>      
+    
+    <div class="card card-btn-container">
         <%= link_to 'Home', beasts_path, class: 'btn btn-dark' %>
         <%= link_to 'Review', new_booking_review_path(@booking), class: 'btn btn-dark' %>
-      </div>
-
-      <div class="reviews-container">
+      </div>      
+    <div class="reviews-container">
         <% @booking.reviews.each_with_index do |review, i| %>
           <div class=" card booking-info-container shadow-1">
             <h6><%= review.content %></h6>
@@ -29,8 +25,7 @@
             <h6>Total price: $<%= @booking.total_price %></h6>
           </div>
         <% end %>
-        </div>
-
+        </div>  
+  
   </div>
 </div>
-

@@ -1,15 +1,11 @@
-
-<div class="page-show user" id='profile-container'>
-
-    <div class="profile-picture">
+<div class="page-show user" id='profile-container'>    <div class="profile-picture">
       <% if current_user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, class: "card-img-top" %>
       <% else %>
         <%= image_tag "https://res.cloudinary.com/dvbejvnhk/image/upload/v1582693057/koala-ava_k6pdbq.png", class: "card-img-top" %>
       <% end %>
-    </div>
-
-    <div class="card user shadow-2" id='user-info'>
+    </div>    
+  <div class="card user shadow-2" id='user-info'>
       <div class="card-body shadow-text">
         <h2 class="card-title shadow-text"><%= @user.fullname %></h2>
         <h6 class="card-title">Email: <%= @user.email %></h6>
@@ -21,6 +17,4 @@
             method: :get,
             class: 'btn btn-dark shadow-2'  %>
       </div>
-    </div>
-
-</div>
+    </div></div>

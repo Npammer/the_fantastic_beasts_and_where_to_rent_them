@@ -4,18 +4,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.profile-picture {
+}.profile-picture {
   width: 400px;
   margin-top: 20px;
 }
 .profile-picture > img {
   border-radius: 8px;
   border: 1px solid $uro-gold;
-}
-
-.card.user {
+}.card.user {
 }
 #user-info {
   display: flex;
@@ -23,37 +19,23 @@
   align-items: center;
   width: 400px;
   background: rgba($uro-gold, 0.7);
-}
-
-#user-info {
+}#user-info {
   background: rgba($gun-metal, 0.5);
   color: $white;
-  text-align: justify;
-
-  p {
+  text-align: justify;  p {
   color: $white;
-  }
-
-  h2 {
+  }  h2 {
     margin: 16px 0px;
-  }
-
-  h6 {
+  }  h6 {
     margin: 0;
   }
-}
-
-#profile-btn-container {
+}#profile-btn-container {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 10px;
-
-  .btn-dark {
+  padding: 10px;  .btn-dark {
     width: 50%;
   }
-}
-
-.profile-home-btn {
+}.profile-home-btn {
   margin-right: 8px;
 }
