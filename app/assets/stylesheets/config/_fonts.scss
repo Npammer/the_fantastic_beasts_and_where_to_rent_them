@@ -2,16 +2,19 @@
 // @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 @import url('https://fonts.googleapis.com/css?family=Dosis:200,400,700&display=swap');
 
+// To use a font file (.woff) uncomment following lines
+
+@font-face {
+    font-family: 'fontastic_beastregular';
+    src: url(asset-path('config/font/fontasticbeast-o7do-webfont.woff2')) format('woff2'),
+         url(asset-path('config/font/fontasticbeast-o7do-webfont.woff')) format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+$my-font: "fontastic_beastregular";
+
 // Define fonts for body and headers
 $body-font: "Dosis", "Helvetica", "sans-serif";
-$headers-font: "fontastic_beastregular", "Helvetica", "sans-serif";
-
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+$headers-font: $my-font, "Helvetica", "sans-serif";
