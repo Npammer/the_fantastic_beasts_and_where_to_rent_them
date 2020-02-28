@@ -1,6 +1,44 @@
 
-<h2><%= @booking.beast.name %></h2>
-<%= cl_image_tag @booking.beast.photo.key %>
+<div class="beast-container">
+  <div class="first-row">
+    <div class="card beast-img">
+      <% if @booking.beast.photo.attached? %>
+          <%= cl_image_tag @booking.beast.photo.key, class: 'img-fluid' %>
+      <% else %>
+        <%= image_tag "koala-ava.png", class: 'img-fluid' %>
+      <% end %>
+    </div>
+
+    <div class="beast-info">
+      <h1 class="card card-title"><%= @booking.beast.name %></h1>
+
+      <div class="card card-info-body">
+        <h5 class="card-info-text"><%= @booking.beast.category.capitalize %> Category</h5>
+        <p class="card-info-text">Location: <%= @booking.beast.location %></p>
+        <p class="card-info-text">Start date; <%= @booking.start_date %></p>
+        <p class="card-info-text">End date; <%= @booking.end_date %></p>
+        <p class="card-info-text">Total price; <%= @booking.total_price %></p>
+
+
+      <!-- Need insert tag for reviews here -->
+
+
+      </div>
+
+      <div class="card card-btn-container">
+        <%= link_to 'Home', beasts_path, class: 'btn btn-dark' %>
+        <%= link_to 'Review', new_booking_review_path(@booking), class: 'btn btn-dark' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 <h3> Start date; <%= @booking.start_date %></h3>
 <h3> End date; <%= @booking.end_date %></h3>
 <h3>Total price; <%= @booking.total_price %></h3>
