@@ -73,7 +73,7 @@ User.destroy_all
 puts 'begin'
 
 user1 = User.create!(email: 'harry@mail.com', password: '123456')
-file = URI.open('https://lh3.googleusercontent.com/proxy/gKQfs0uf3PwaiKaDwyUUZv3jnZm3R1tcjQzJS5zVsH5JCmhapihh2YtinwAxH71u-NLcanwhxgOhxY5-rFtyi23N3Zyal6fMUB1aLnF9V2FWj1vPaQb9x06E7dpVENcN-wvRKbm0rYKcMbBRMmjN46JMx2n2bA')
+file = URI.open('http://images4.fanpop.com/image/photos/24300000/Harry-Potter-harry-potter-24330736-800-600.jpg')
 user1.photo.attach(io: file, filename: 'pict.jpg', content_type: 'image/jpg')
 
 user2 = User.create!(email: 'dumbledore@mail.com', password: '123456')
