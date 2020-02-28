@@ -1,0 +1,42 @@
+.profile-picture {
+  width: 400px;
+  margin-top: 20px;
+
+}
+
+.profile-picture > img {
+  border-radius: 50%;
+  border: 1px solid $uro-gold;
+}
+
+#profile-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#user-info {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  background: rgba($uro-gold, 0.7);
+}
+
+#user-info > div > h5{
+  color: black;
+}
+
+#user-info > div > h2{
+  margin: 16px 0px;
+}
+
+#profile-btn-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.profile-home-btn {
+  margin-right: 8px;
+}
+
