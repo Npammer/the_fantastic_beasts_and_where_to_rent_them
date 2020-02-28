@@ -1,15 +1,15 @@
 
 <div class="beast-container">
 
-  <div class='row justify-content-center' style="display: flex;">
+  <div class='row search-bar-container'>
     <%= form_tag beasts_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control",
+        class: "form-control search-input",
         placeholder: "Find a beast"
       %>
       <span class="input-group-btn">
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <i class="fas fa-search"><%= submit_tag "", class: "btn-dark search-btn" %></i>
       </span>
     <% end %>
   </div>
@@ -18,7 +18,7 @@
   <div class="row justify-content-center">
     <% if @beasts_results.nil? %>
       <% @beasts.each do |beast| %>
-        <div class="card col-12 col-md-5 col-lg-3 p-1 shadow-2">
+        <div class="card col-12 col-md-5 col-lg-3 p-2 shadow-2 card-mobile" data-url="/beasts/<%= beast.id %>">
 
           <div class="card-img">
             <% if beast.photo.attached? %>
@@ -28,9 +28,9 @@
             <% end %>
           </div>
 
-          <div class="card-body">
+          <div class="card-body shadow-text-2">
             <h3 class="card-title"><%= link_to beast.name, beast_path(beast) %></h3>
-            <p class="card-text">Where to find: <%= beast.location %></p>
+            <h6 class="card-text">Where to find: <%= beast.location %></h6>
 
           </div>
 
@@ -46,7 +46,7 @@
       <% @beasts_results.each do |beast| %>
         <% if beast.searchable_type == "Beast" %>
         <!-- another card -->
-          <div class="card col-12 col-md-5 col-lg-3 p-1 shadow-2">
+          <div class="card col-12 col-md-5 col-lg-3 p-2 shadow-2 card-mobile">
             <div class="card-img">
               <% if beast.searchable.photo.attached? %>
                 <img class="card-img-top" src="<%= cl_image_path beast.searchable.photo.key %>" alt="Card image cap">
@@ -54,9 +54,9 @@
                 <%= image_tag "koala-ava.png", alt: "Card image cap", class: "card-img-top"%>
               <% end %>
             </div>
-            <div class="card-body">
+            <div class="card-body shadow-text-2">
               <h3 class="card-title"><%= link_to beast.searchable.name, beast_path(beast.searchable) %></h3>
-              <h5 class="card-text">Where to find: <%= beast.searchable.location %></h5>
+              <h6 class="card-text">Where to find: <%= beast.searchable.location %></h6>
             </div>
             <%= link_to 'More info', beast_path(beast.searchable),
                 method: :get,
@@ -67,3 +67,18 @@
     <% end %>
   </div>
 </div>
+
+
+<script>
+  let cards = document.querySelectorAll('.card');
+  cards.forEach((el) => {
+    el.classList.remove('rotate-ani');
+    el.addEventListener('click', () => {
+      el.classList.add('rotate-ani');
+      redirect(el.getAttribute('data-url'));
+  })})
+
+  const redirect = (url) => {
+    window.location.href = url;
+  }
+</script>

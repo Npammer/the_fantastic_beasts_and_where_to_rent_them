@@ -22,3 +22,11 @@
     color: $ori-orange;
   }
 }
+
+@media (max-width: 720px) {
+  .navbar-dark .nav-item {
+    .nav-link {
+    font-size: 12px;
+    }
+  }
+}
